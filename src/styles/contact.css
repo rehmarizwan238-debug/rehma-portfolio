@@ -1,0 +1,121 @@
+.contact{
+padding:100px 8%;
+background:#0f172a;
+}
+
+.contact-container{
+display:grid;
+grid-template-columns:1fr 1fr;
+gap:50px;
+margin-top:50px;
+}
+
+.contact-info h3{
+font-size:30px;
+margin-bottom:20px;
+color:#6c63ff;
+}
+
+.contact-info p{
+color:#cbd5e1;
+line-height:1.8;
+margin-bottom:25px;
+}
+
+.info-item{
+display:flex;
+align-items:center;
+gap:15px;
+margin-bottom:20px;
+font-size:18px;
+}
+
+.social-links{
+display:flex;
+gap:15px;
+margin-top:25px;
+}
+
+.social-links a{
+width:45px;
+height:45px;
+border-radius:50%;
+background:#1e293b;
+display:flex;
+justify-content:center;
+align-items:center;
+color:white;
+transition:.3s;
+}
+
+.social-links a:hover{
+background:#6c63ff;
+}
+
+.contact-form{
+display:flex;
+flex-direction:column;
+gap:20px;
+}
+
+.contact-form input,
+.contact-form textarea{
+padding:15px;
+border:none;
+border-radius:10px;
+background:#1e293b;
+color:white;
+}
+
+.contact-form button{
+padding:15px;
+border:none;
+background:#6c63ff;
+color:white;
+border-radius:30px;
+cursor:pointer;
+font-size:16px;
+transition:.3s;
+}
+
+.contact-form button:hover{
+transform:translateY(-5px);
+}
+
+@media(max-width:768px){
+
+.contact-container{
+grid-template-columns:1fr;
+}
+
+}
+/* ==========================
+   EmailJS Messages
+========================== */
+
+.success-message{
+color:#22c55e;
+font-size:16px;
+font-weight:600;
+margin-top:10px;
+text-align:center;
+}
+
+.error-message{
+color:#ef4444;
+font-size:16px;
+font-weight:600;
+margin-top:10px;
+text-align:center;
+}
+
+.contact-form button:disabled{
+opacity:.7;
+cursor:not-allowed;
+}
+
+.contact-form label{
+color:white;
+font-weight:600;
+margin-bottom:-12px;
+}
