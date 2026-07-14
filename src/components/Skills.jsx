@@ -1,19 +1,88 @@
 import "../styles/skills.css";
 import { skills } from "../data/skills";
 
+import {
+  FaCode,
+  FaLaptopCode,
+  FaAward,
+} from "react-icons/fa";
+
 function Skills() {
+
   return (
-    <section id="skills" className="skills">
+
+    <section
+      id="skills"
+      className="skills"
+    >
 
       <div className="container">
 
-        <h2 className="section-title">
-          My Skills
-        </h2>
+        {/* Heading */}
+
+        <div className="section-heading">
+
+          <span>My Expertise</span>
+
+          <h2>Professional Skills</h2>
+
+          <p>
+            My technical skills and knowledge gained
+            through university projects, self-learning
+            and practical frontend development.
+          </p>
+
+        </div>
+
+        {/* Top Cards */}
+
+        <div className="skills-top">
+
+          <div className="skill-info-card">
+
+            <FaCode />
+
+            <h3>Frontend</h3>
+
+            <p>
+              HTML5, CSS3, JavaScript,
+              React.js
+            </p>
+
+          </div>
+
+          <div className="skill-info-card">
+
+            <FaLaptopCode />
+
+            <h3>Responsive UI</h3>
+
+            <p>
+              Mobile First Design &
+              Modern Layouts
+            </p>
+
+          </div>
+
+          <div className="skill-info-card">
+
+            <FaAward />
+
+            <h3>Problem Solving</h3>
+
+            <p>
+              Clean Code &
+              Logical Thinking
+            </p>
+
+          </div>
+
+        </div>
+
+        {/* Progress Skills */}
 
         <div className="skills-grid">
-
-          {skills.map((skill, index) => (
+                  {skills.map((skill, index) => (
 
             <div
               className="skill-card"
@@ -24,9 +93,7 @@ function Skills() {
 
                 <h3>{skill.name}</h3>
 
-                <span>
-                  {skill.level}
-                </span>
+                <span>{skill.level}</span>
 
               </div>
 
@@ -35,7 +102,7 @@ function Skills() {
                 <div
                   className="progress"
                   style={{
-                    width: skill.level
+                    width: skill.level,
                   }}
                 ></div>
 
@@ -47,9 +114,10 @@ function Skills() {
 
         </div>
 
-      </div>
+    </div>
 
     </section>
+
   );
 }
 

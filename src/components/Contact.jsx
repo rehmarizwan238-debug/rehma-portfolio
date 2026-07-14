@@ -11,6 +11,7 @@ import {
   FaMapMarkerAlt,
   FaGithub,
   FaLinkedin,
+  FaPaperPlane,
 } from "react-icons/fa";
 
 function Contact() {
@@ -24,10 +25,12 @@ function Contact() {
   const [error, setError] = useState("");
 
   useEffect(() => {
+
     AOS.init({
-      duration: 1000,
-      once: true,
+      duration:1000,
+      once:true,
     });
+
   }, []);
 
   const sendEmail = (e) => {
@@ -35,15 +38,23 @@ function Contact() {
     e.preventDefault();
 
     setLoading(true);
+
     setSuccess("");
+
     setError("");
 
     emailjs
+
       .sendForm(
+
         "service_opzmnqc",
+
         "template_9dg6t09",
+
         form.current,
+
         "-6Q9hQGw75Ybx2x0K"
+
       )
 
       .then(() => {
@@ -58,7 +69,7 @@ function Contact() {
 
       .catch(() => {
 
-        setError("❌ Something went wrong. Please try again.");
+        setError("❌ Something went wrong.");
 
         setLoading(false);
 
@@ -71,29 +82,49 @@ function Contact() {
     <section
       className="contact"
       id="contact"
-      data-aos="fade-up"
     >
 
       <div className="container">
 
-        <h2 className="section-title">
+        <div className="section-heading">
 
-          Contact Me
+          <span>Contact</span>
 
-        </h2>
+          <h2>Let's Work Together</h2>
+
+          <p>
+
+            Have an idea or project?
+
+            Feel free to contact me anytime.
+
+          </p>
+
+        </div>
 
         <div className="contact-container">
+
+          {/* Left Side */}
 
           <div
             className="contact-info"
             data-aos="fade-right"
           >
 
-            <h3>Let's Work Together</h3>
+            <h3>
+
+              Get In Touch
+
+            </h3>
 
             <p>
-              Feel free to contact me for Frontend Development,
-              React.js projects, UI Design or collaboration opportunities.
+
+              I'm always open to discussing
+
+              new opportunities, internships
+
+              and frontend projects.
+
             </p>
 
             <div className="info-item">
@@ -101,7 +132,9 @@ function Contact() {
               <FaEnvelope />
 
               <span>
+
                 rehma.rizwan238@gmail.com
+
               </span>
 
             </div>
@@ -111,7 +144,9 @@ function Contact() {
               <FaPhoneAlt />
 
               <span>
+
                 +92 348 7134292
+
               </span>
 
             </div>
@@ -121,7 +156,9 @@ function Contact() {
               <FaMapMarkerAlt />
 
               <span>
+
                 Lahore, Pakistan
+
               </span>
 
             </div>
@@ -129,7 +166,7 @@ function Contact() {
             <div className="social-links">
 
               <a
-                href="https://github.com/"
+                href="https://github.com/rehmarizwan238-debug"
                 target="_blank"
                 rel="noreferrer"
               >
@@ -139,7 +176,7 @@ function Contact() {
               </a>
 
               <a
-                href="https://linkedin.com/"
+                href="https://linkedin.com/in/rehma-rizwan-7b4964400"
                 target="_blank"
                 rel="noreferrer"
               >
@@ -152,14 +189,15 @@ function Contact() {
 
           </div>
 
+          {/* Contact Form */}
+
           <form
             ref={form}
             onSubmit={sendEmail}
             className="contact-form"
             data-aos="fade-left"
           >
-
-            <label>
+                      <label>
 
               Full Name
 
@@ -181,7 +219,7 @@ function Contact() {
             <input
               type="email"
               name="email"
-              placeholder="Enter your email"
+              placeholder="Enter your email address"
               required
             />
 
@@ -210,25 +248,38 @@ function Contact() {
               placeholder="Write your message..."
               required
             ></textarea>
-                        {success && (
+
+            {success && (
+
               <p className="success-message">
+
                 {success}
+
               </p>
+
             )}
 
             {error && (
+
               <p className="error-message">
+
                 {error}
+
               </p>
+
             )}
 
             <button
               type="submit"
-              aria-label="Send Message"
+              className="contact-btn"
               disabled={loading}
+
             >
+
+              <FaPaperPlane />
+
               {loading ? "Sending..." : "Send Message"}
-            </button>
+              </button>
 
           </form>
 
@@ -237,6 +288,7 @@ function Contact() {
       </div>
 
     </section>
+
   );
 }
 

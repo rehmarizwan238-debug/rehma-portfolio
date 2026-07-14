@@ -1,35 +1,103 @@
 import "../styles/footer.css";
-import { FaGithub, FaLinkedin, FaEnvelope } from "react-icons/fa";
+
+import {
+  FaGithub,
+  FaLinkedin,
+  FaEnvelope,
+  FaArrowUp,
+} from "react-icons/fa";
 
 function Footer() {
+
   return (
+
     <footer className="footer">
 
-      <h2>Rehma Rizwan</h2>
+      <div className="container">
 
-      <p>Frontend React Developer</p>
+        <h2>
 
-      <div className="footer-icons">
+          Rehma <span>Rizwan</span>
 
-        <a href="https://github.com/" target="_blank" rel="noreferrer">
-          <FaGithub />
-        </a>
+        </h2>
 
-        <a href="https://linkedin.com/" target="_blank" rel="noreferrer">
-          <FaLinkedin />
-        </a>
+        <p className="footer-desc">
 
-        <a href="mailto:rehma@example.com">
-          <FaEnvelope />
-        </a>
+          Frontend React Developer passionate about
+          building responsive, modern and user-friendly
+          web applications with React.js.
+
+        </p>
+
+        <div className="footer-links">
+
+          <a href="#home">Home</a>
+
+          <a href="#about">About</a>
+
+          <a href="#skills">Skills</a>
+
+          <a href="#projects">Projects</a>
+
+          <a href="#contact">Contact</a>
+
+        </div>
+
+        <div className="footer-icons">
+
+          <a
+            href="https://github.com/rehmarizwan238-debug"
+            target="_blank"
+            rel="noreferrer"
+          >
+
+            <FaGithub />
+
+          </a>
+
+          <a
+            href="https://www.linkedin.com/in/rehma-rizwan-7b4964400"
+            target="_blank"
+            rel="noreferrer"
+          >
+
+            <FaLinkedin />
+
+          </a>
+
+          <a
+            href="mailto:rehma.rizwan238@gmail.com"
+          >
+
+            <FaEnvelope />
+
+          </a>
+
+        </div>
+                <div className="footer-bottom">
+
+          <p>
+
+            © 2026 Rehma Rizwan. All Rights Reserved.
+
+          </p>
+
+          <a
+            href="#home"
+            className="back-top"
+            aria-label="Back to Top"
+          >
+
+            <FaArrowUp />
+
+          </a>
+
+        </div>
 
       </div>
 
-      <p className="copyright">
-        © 2026 Rehma Rizwan. All Rights Reserved.
-      </p>
-
     </footer>
+
   );
 }
 

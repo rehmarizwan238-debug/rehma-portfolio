@@ -1,22 +1,73 @@
-import { FaGithub, FaExternalLinkAlt } from "react-icons/fa";
+import { useState } from "react";
+
+import {
+  FaGithub,
+  FaExternalLinkAlt,
+  FaSearch,
+} from "react-icons/fa";
+
 import { projects } from "../data/projects";
+
 import "../styles/projects.css";
 
 function Projects() {
+
+  const [search, setSearch] = useState("");
+
+  const filteredProjects = projects.filter((project) =>
+    project.title.toLowerCase().includes(search.toLowerCase()) ||
+    project.description.toLowerCase().includes(search.toLowerCase())
+  );
+
   return (
-    <section id="projects" className="projects">
+
+    <section
+      id="projects"
+      className="projects"
+    >
 
       <div className="container">
 
-        <h2 className="section-title">
-          My Projects
-        </h2>
+        {/* Heading */}
+
+        <div className="section-heading">
+
+          <span>Portfolio</span>
+
+          <h2>Featured Projects</h2>
+
+          <p>
+            A collection of projects demonstrating
+            my frontend development skills,
+            responsive design and React experience.
+          </p>
+
+        </div>
+
+        {/* Search */}
+
+        <div className="project-search">
+
+          <FaSearch />
+
+          <input
+            type="text"
+            placeholder="Search project..."
+            value={search}
+            onChange={(e)=>setSearch(e.target.value)}
+          />
+
+        </div>
+
+        {/* Grid */}
 
         <div className="projects-grid">
+                    {filteredProjects.map((project) => (
 
-          {projects.map((project) => (
-
-            <div className="project-card" key={project.id}>
+            <div
+              className="project-card"
+              key={project.id}
+            >
 
               <img
                 src={project.image}
@@ -28,6 +79,8 @@ function Projects() {
                 <h3>{project.title}</h3>
 
                 <p>{project.description}</p>
+
+                {/* Technology Stack */}
 
                 <div className="tech-stack">
 
@@ -41,6 +94,8 @@ function Projects() {
 
                 </div>
 
+                {/* Buttons */}
+
                 <div className="project-buttons">
 
                   <a
@@ -52,6 +107,7 @@ function Projects() {
                     <FaGithub />
 
                     GitHub
+
                   </a>
 
                   <a
@@ -63,6 +119,7 @@ function Projects() {
                     <FaExternalLinkAlt />
 
                     Live Demo
+
                   </a>
 
                 </div>
@@ -72,12 +129,12 @@ function Projects() {
             </div>
 
           ))}
-
-        </div>
+                  </div>
 
       </div>
 
     </section>
+
   );
 }
 

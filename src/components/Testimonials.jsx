@@ -1,26 +1,54 @@
 import "../styles/testimonials.css";
 import { testimonials } from "../data/testimonials";
-import { FaStar } from "react-icons/fa";
+
+import {
+  FaStar,
+  FaQuoteLeft,
+} from "react-icons/fa";
 
 function Testimonials() {
+
   return (
-    <section className="testimonials" id="testimonials">
+
+    <section
+      className="testimonials"
+      id="testimonials"
+    >
+
       <div className="container">
 
-        <h2 className="section-title">
-          Client Testimonials
-        </h2>
+        {/* Section Heading */}
+
+        <div className="section-heading">
+
+          <span>Testimonials</span>
+
+          <h2>What Clients Say</h2>
+
+          <p>
+            Feedback from clients and project collaborations
+            reflecting quality, professionalism and
+            commitment to delivering responsive websites.
+          </p>
+
+        </div>
 
         <div className="testimonials-grid">
+                    {testimonials.map((item) => (
 
-          {testimonials.map((item) => (
+            <div
+              className="testimonial-card"
+              key={item.id}
+            >
 
-            <div className="testimonial-card" key={item.id}>
+              <FaQuoteLeft className="quote-icon" />
 
               <div className="stars">
 
                 {[...Array(item.rating)].map((_, index) => (
+
                   <FaStar key={index} />
+
                 ))}
 
               </div>
@@ -29,9 +57,13 @@ function Testimonials() {
                 "{item.review}"
               </p>
 
-              <h3>{item.name}</h3>
+              <div className="client-info">
 
-              <span>{item.role}</span>
+                <h3>{item.name}</h3>
+
+                <span>{item.role}</span>
+
+              </div>
 
             </div>
 
@@ -40,7 +72,9 @@ function Testimonials() {
         </div>
 
       </div>
+
     </section>
+
   );
 }
 
